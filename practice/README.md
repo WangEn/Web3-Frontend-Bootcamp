@@ -1,55 +1,4 @@
-# task 01 React To-Do-List
-
-## 任务启动
-
-``` bash
-pnpm create vite@latest practice --template react
-
-cd practice
-
-pnpm install
-
-pnpm run dev
-```
-
-## 任务目标
-
-- 掌握 React 组件化开发：通过构建多个组件，理解组件的创建和复用。
-- 理解和使用状态管理：通过管理待办事项的状态，掌握 React 的状态管理。
-- 应用 React Hooks：使用 useState 和 useEffect 等 Hook，熟悉函数组件的开发。
-
-## 任务要求
-
-### 项目初始化
-
-- 使用 Create-vite 初始化你的项目。
-- 设置项目结构，创建必要的文件和文件夹。
-
-### 创建组件
-
-- App 组件：作为应用的根组件。
-- Header 组件：展示应用标题。
-- ToDoList 组件：展示所有待办事项。
-- ToDoItem 组件：展示单个待办事项。
-- AddToDo 组件：包含一个输入框和添加按钮，用于添加新的待办事项。
-
-### 实现功能
-
-- 添加待办事项：用户可以通过输入框输入待办事项，并点击按钮进行添加。
-- 删除待办事项：每个待办事项旁边有一个删除按钮，点击后可以删除该事项。
-- 标记完成：用户可以通过点击待办事项，标记其为已完成或未完成。
-- 保存到本地存储：使用 useEffect 将待办事项保存到本地存储，并在页面刷新时恢复。
-
-### 使用状态管理
-
-- 使用 useState 管理待办事项列表和输入框的状态。
-
-### 使用 Hooks
-
-- 使用 useState 管理组件的状态。
-- 使用 useEffect 实现本地存储的保存和恢复功能。
-
-## React + Vite
+# React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -57,3 +6,25 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+
+- Configure the top-level `parserOptions` property like this:
+
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
+
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
