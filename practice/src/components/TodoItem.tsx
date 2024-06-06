@@ -1,4 +1,6 @@
-import React from "react"
+import React from "react";
+import "@/TodoList.css";
+
 interface TodoItemProps {
   id: number;
   text: string;
@@ -10,12 +12,14 @@ const TodoItem: React.FC<TodoItemProps> = ({
   id, text, completed, onToggle, onDelete
 }) => {
   return (
-    <li>
-      <span style={{ textDecoration: completed? "line-through" : "none"}}
-      onClick={() => onToggle(id)}>{text}</span>
-      <button onClick={() => onDelete(id)}>Delete</button>
+    <li className="todo-item">
+      <div className="todo-item-info" onClick={() => onToggle(id)}>
+        <i className={completed? 'completed' : ''}></i>
+        <span style={{ textDecoration: completed? "line-through" : "none"}}>{text}</span>
+      </div>
+      <button onClick={() => onDelete(id)}>删除</button>
     </li>
   )
 }
 
-export default TodoItem
+export default TodoItem;

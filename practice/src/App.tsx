@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import "@/TodoList.css";
 import Header from "./components/Header";
 import AddTodo from "./components/AddToDo";
 import TodoList from "./components/TodoList";
+import Footer from "./components/Footer";
 interface Todo {
   id: number;
   text: string;
@@ -16,10 +18,13 @@ function App() {
       : []
   );
 
+  const [todoCount, setTodoCount] = useState<number>(0)
+  const [uncompletedCount, setUncompletedCount] = useState<number>(0)
+
   useEffect(() => {
-    console.log(todos);
-    console.log(localStorage.getItem("todos"));
     localStorage.setItem("todos", JSON.stringify(todos));
+    setTodoCount(todos.length)
+    setUncompletedCount(todos.filter(todo=>!todo.completed).length)
   }, [todos]);
 
   const addTodo = (text: string) => {
@@ -41,8 +46,11 @@ function App() {
   return (
     <>
       <Header />
-      <AddTodo onAdd={addTodo} />
-      <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+      <div className="todo-container">
+        <AddTodo onAdd={addTodo} />
+        <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+      </div>
+      <Footer todoCount={todoCount} uncompletedCount={uncompletedCount} />
     </>
   );
 }

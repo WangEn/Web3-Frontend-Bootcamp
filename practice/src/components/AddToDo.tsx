@@ -14,11 +14,17 @@ const AddTodo: React.FC<newProps> = ({ onAdd }) => {
       setNewTodo('')
     }
   }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === 'Enter') {
+      addTodo()
+    }
+  }
   
   return (
-    <div>
-      <input type="text" value={newTodo} onChange={e => setNewTodo(e.target.value)} />
-      <button onClick={() => addTodo()}>Add</button>
+    <div className="todo-input">
+      <input type="text" placeholder="请输入新增待办" value={newTodo} onChange={e => setNewTodo(e.target.value)} onKeyDown={handleKeyDown} />
+      <button onClick={() => addTodo()}>新增待办</button>
     </div>
   )
 }

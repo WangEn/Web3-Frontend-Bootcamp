@@ -1,12 +1,12 @@
-import React from "react"
+import React from "react";
+import "@/TodoList.css";
+
 const Header: React.FC = () => {
   return (
-    <div>
-      <a href="/" target="_blank">
-        <span>Todo List</span>
-      </a>
+    <div className="todo-header">
+      Todo List
     </div>
   )
 }
 
-export default Header
+export default Header;

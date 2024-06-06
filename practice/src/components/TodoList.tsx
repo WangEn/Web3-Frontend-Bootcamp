@@ -1,5 +1,7 @@
-import React from "react"
-import TodoItem from "./TodoItem"
+import React from "react";
+import TodoItem from "./TodoItem";
+import "@/TodoList.css";
+
 interface Todo {
   id: number;
   text: string;
@@ -12,7 +14,7 @@ interface TodoListProps {
 }
 const TodoList: React.FC<TodoListProps> = ({todos, onToggle, onDelete}) => {
   return (
-    <ul>
+    <ul className="todo-list">
       {todos.map(todo => (
         <TodoItem key={todo.id} {...todo} onToggle={onToggle} onDelete={onDelete} />
       ))}
@@ -20,4 +22,4 @@ const TodoList: React.FC<TodoListProps> = ({todos, onToggle, onDelete}) => {
   )
 }
 
-export default TodoList
+export default TodoList;
