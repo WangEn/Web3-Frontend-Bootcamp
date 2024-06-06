@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# task1: 待办事项应用TodoList
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Install
 
-Currently, two official plugins are available:
+``` bash
+pnpm create vite@latest practice --template react-ts
+cd practice
+pnpm install
+pnpm dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 目录结构
+
+- App.tsx 应用根组件
+- App.tsx 应用公用样式
+- TodoList.tsx 待办相关样式
+- compoents：组件文件夹
+- - Header.tsx 页面顶部组件,展示应用信息
+- - Footer.tsx 页面底部组件
+- - AddTodo.tsx 新增待办事项组件
+- - TodoList.tsx 待办事项列表展示组件
+- - TodoItem.tsx 单个待办事项组件
